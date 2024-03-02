@@ -8,6 +8,16 @@ public class Movie {
     private String name;
     private String director;
     private int releaseYear;
+    private double duration;
+
+    public double getDuration() {
+        return duration;
+    }
+
+    public void setDuration(double duration) {
+        this.duration = duration;
+    }
+
     public String getDirector() {
         return director;
     }
