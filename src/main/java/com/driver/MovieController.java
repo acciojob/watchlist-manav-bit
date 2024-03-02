@@ -1,6 +1,5 @@
 package com.driver;
 
-import org.eclipse.jetty.server.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/movies")
 
-public class watchlistcontroller {
+public class MovieController {
 
 
 
