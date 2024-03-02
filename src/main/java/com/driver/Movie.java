@@ -10,6 +10,13 @@ public class Movie {
     private int releaseYear;
     private double duration;
 
+    public Movie(String name, String director, int releaseYear, double duration) {
+        this.name = name;
+        this.director = director;
+        this.releaseYear = releaseYear;
+        this.duration = duration;
+    }
+
     public double getDuration() {
         return duration;
     }

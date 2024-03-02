@@ -18,54 +18,54 @@ public class MovieController {
     private watchlistservice service;
 
     @PostMapping("/add-movies")
-    public ResponseEntity<String> addmovie(@RequestBody Movie m){
-        service.addmovie(m);
+    public ResponseEntity<String> addMovie(@RequestBody Movie m){
+        service.addMovie(m);
 return ResponseEntity.status(HttpStatus.CREATED).body("Movie added");
     }
 
     @PostMapping("/add-director")
-    public ResponseEntity<String> adddirector(@RequestBody Director d){
-        service.adddirector(d);
+    public ResponseEntity<String> addDirector(@RequestBody Director d){
+        service.addDirector(d);
         return ResponseEntity.status(HttpStatus.CREATED).body("Director added");
     }
     @PutMapping("/add-movie-director-pair")
-    public ResponseEntity<String> updatemoviedirectorpair(){
-service.updatemoviedirectorpair();
+    public ResponseEntity<String> addMovieDirectorPair(){
+service.addMovieDirectorPair();
   return ResponseEntity.status(HttpStatus.CREATED).body("Movie-Director pair added successfully");
     }
     @GetMapping("/get-movie-by-name/{name}")
-    public ResponseEntity<Movie> getmoviebyname(@PathVariable String name){
-Movie m=service.getmoviebyname(name);
+    public ResponseEntity<Movie> getMovieByName(@PathVariable String name){
+Movie m=service.getMovieByName(name);
 return ResponseEntity.ok(m);
     }
 
     @GetMapping("/get-director-by-name/{name}")
-    public ResponseEntity<Director> getdirectorbyname(@PathVariable String name){
-        Director d=service.getdirectorbyname(name);
+    public ResponseEntity<Director> getDirectorByName(@PathVariable String name){
+        Director d=service.getDirectorByName(name);
         return ResponseEntity.ok(d);
     }
 
     @GetMapping("/get-movies-by-director-name/{director}")
-    public ResponseEntity<List<Movie>> getmoviebydirectorname(@PathVariable String director){
-       List<Movie> m =service.getmoviebydirectorname(director);
+    public ResponseEntity<List<Movie>> getMoviesByDirectorName(@PathVariable String director){
+       List<Movie> m =service.getMoviesByDirectorName(director);
 return ResponseEntity.ok(m);
     }
 
     @GetMapping("/get-all-movies")
-    public ResponseEntity<List<Movie>> getallmovies(){
-List<Movie> movies=service.getallmovies();
+    public ResponseEntity<List<Movie>> findAllMovies(){
+List<Movie> movies=service.findAllMovies();
 return ResponseEntity.ok(movies);
     }
 
     @DeleteMapping("/delete-director-by-name/{name}")
-    public ResponseEntity<String> deletedirectorbyname(@PathVariable String name){
-service.deletedirectorbyname(name);
+    public ResponseEntity<String> deleteDirectorByName(@PathVariable String name){
+service.deleteDirectorByName(name);
 return ResponseEntity.status(HttpStatus.OK).body("Director deleted ");
     }
 
     @DeleteMapping("/delete-all-directors")
-    public ResponseEntity<String> deletealldirectors(){
-service.deletealldirectors();
+    public ResponseEntity<String> deleteAllDirectors(){
+service.deleteAllDirectors();
         return ResponseEntity.status(HttpStatus.OK).body("All directors deleted ");
     }
 

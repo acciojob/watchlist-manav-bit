@@ -13,34 +13,34 @@ public class watchlistservice {
    @Autowired
    private watchlistrepository repository;
 
-public void addmovie(Movie m){
-   repository.addmovie(m);
+public void addMovie(Movie m){
+   repository.addMovie(m);
 
 }
-   public void adddirector(Director d){
-   repository.adddirector(d);
+   public void addDirector(Director d){
+   repository.addDirector(d);
    }
-   public void updatemoviedirectorpair(){
-   repository.updatemoviedirectorpair();
+   public void addMovieDirectorPair(){
+   repository.addMovieDirectorPair();
    }
-public Movie getmoviebyname(String name){
-   return repository.getmoviebyname(name);
+public Movie getMovieByName(String name){
+   return repository.getMovieByName(name);
 }
-  public Director getdirectorbyname(String name) {
-   return repository.getdirectorbyname(name);
+  public Director getDirectorByName(String name) {
+   return repository.getDirectorByName(name);
  }
 
- public List<Movie> getmoviebydirectorname(String name){
-   return repository.getmoviebydirectorname(name);
+ public List<Movie> getMoviesByDirectorName(String name){
+   return repository.getMoviesByDirectorName(name);
  }
- public List<Movie>getallmovies(){
-    return repository.getallmovies();
+ public List<Movie>findAllMovies(){
+    return repository.findAllMovies();
  }
-public void deletedirectorbyname(String name){
-    repository.deletedirectorbyname(name);
+public void deleteDirectorByName(String name){
+    repository.deleteDirectorByName(name);
 }
-public void deletealldirectors(){
-    repository.deletealldirectors();
+public void deleteAllDirectors(){
+    repository.deleteAllDirectors();
 }
 
 }

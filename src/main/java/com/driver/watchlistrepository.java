@@ -3,9 +3,7 @@ package com.driver;
 
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @Repository
 public class watchlistrepository {
@@ -14,13 +12,13 @@ private final HashMap<String,Movie>movies=new HashMap<>();
   private final HashMap<String,Director>directors=new HashMap<>();
    private final HashMap<String,String>moviesdirectorpair=new HashMap<>();
 
-   public void addmovie(Movie m){
+   public void addMovie(Movie m){
        movies.put(m.getName(),m);
    }
-   public void adddirector(Director d){
+   public void addDirector(Director d){
        directors.put(d.getName(),d);
    }
-   public void updatemoviedirectorpair(){
+   public void addMovieDirectorPair(){
        for(Movie val:movies.values()){
            String d=val.getDirector();
            if(!directors.isEmpty() && directors.containsKey(d)){
@@ -28,7 +26,7 @@ private final HashMap<String,Movie>movies=new HashMap<>();
            }
        }
    }
-   public Movie getmoviebyname(String name){
+   public Movie getMovieByName(String name){
       for(Movie m:movies.values()){
           if(m.getName().equals(name)){
               return m;
@@ -36,7 +34,7 @@ private final HashMap<String,Movie>movies=new HashMap<>();
       }
 return null;
    }
-   public Director getdirectorbyname(String name){
+   public Director getDirectorByName(String name){
        for(Director d:directors.values()){
 //           System.out.println(d.getName()+ " "+ name);
            if(d.getName().equals(name)){
@@ -48,7 +46,7 @@ return null;
        return null;
    }
 
-   public List<Movie> getmoviebydirectorname(String name){
+   public List<Movie> getMoviesByDirectorName(String name){
        List<Movie>ans=new ArrayList<>();
        for(Movie m:movies.values()){
            if(m.getDirector().equals(name)){
@@ -57,22 +55,30 @@ return null;
        }
        return ans;
    }
-   public List<Movie>getallmovies(){
+   public List<Movie>findAllMovies(){
        List<Movie>ans=new ArrayList<>();
        for(Movie m: movies.values()){
            ans.add(m);
        }
        return ans;
    }
-public void deletedirectorbyname(String name){
-       if(directors.containsKey(name)){
-           directors.remove(name);
-       }
+    public void deleteDirectorByName(String name) {
+        Set<Movie> moviesToRemove = new HashSet<>();
+        for (Movie m : movies.values()) {
+            if (m.getDirector().equals(name)) {
+                moviesToRemove.add(m);
+            }
+        }
 
+        for (Movie m : moviesToRemove) {
+            movies.remove(m.getName());
+        }
 
-}
+        directors.remove(name);
+    }
 
-public void deletealldirectors(){
+public void deleteAllDirectors(){
        directors.clear();
+       movies.clear();
 }
 }
