@@ -28,11 +28,14 @@ public class MovieRepository {
 
        if(movieMap.containsKey(movie) && directorMap.containsKey(director)){
            // your code here
-         List<String> movies=directorMovieMapping.get(director);//list of movies by given director
-           movies.add(movie);//new movie paired with director
+
+         //list of movies by given director
+          List<String> movies=new ArrayList<>();
+          movies.add(movie);
            directorMovieMapping.put(director,movies);//updated the director movie pair map
 
        }
+
 
    }
    public Movie findMovie(String name){
