@@ -1,44 +1,21 @@
 package com.driver;
 
-
-import org.springframework.stereotype.Repository;
-
-@Repository
 public class Movie {
+
     private String name;
-    private String director;
-    private int releaseYear;
-    private double duration;
 
-    public Movie(String name, String director, int releaseYear, double duration) {
+    private int durationInMinutes;
+
+    private double imdbRating;
+
+    public Movie(){
+
+    }
+
+    public Movie(String name, int durationInMinutes, double imdbRating) {
         this.name = name;
-        this.director = director;
-        this.releaseYear = releaseYear;
-        this.duration = duration;
-    }
-
-    public double getDuration() {
-        return duration;
-    }
-
-    public void setDuration(double duration) {
-        this.duration = duration;
-    }
-
-    public String getDirector() {
-        return director;
-    }
-
-    public int getReleaseYear() {
-        return releaseYear;
-    }
-
-    public void setReleaseYear(int releaseYear) {
-        this.releaseYear = releaseYear;
-    }
-
-    public void setDirector(String director) {
-        this.director = director;
+        this.durationInMinutes = durationInMinutes;
+        this.imdbRating = imdbRating;
     }
 
     public String getName() {
@@ -47,5 +24,21 @@ public class Movie {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getDurationInMinutes() {
+        return durationInMinutes;
+    }
+
+    public void setDurationInMinutes(int durationInMinutes) {
+        this.durationInMinutes = durationInMinutes;
+    }
+
+    public double getImdbRating() {
+        return imdbRating;
+    }
+
+    public void setImdbRating(double imdbRating) {
+        this.imdbRating = imdbRating;
     }
 }
