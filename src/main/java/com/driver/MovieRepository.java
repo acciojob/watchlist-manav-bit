@@ -97,8 +97,15 @@ return null;
     }
 
 public void deleteAllDirectors(){
+
+    for(String s:directorMap.keySet()){
+        List<String> movielist=directorMovieMapping.get(s);
+        for(String m:movielist){
+            movieMap.remove(m);
+        }
+        directorMovieMapping.remove(s);
+    }
     directorMap.clear();
-    movieMap.clear();
-    directorMovieMapping.clear();
+
 }
 }
