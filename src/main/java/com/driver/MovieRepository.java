@@ -28,10 +28,14 @@ public class MovieRepository {
 
        if(movieMap.containsKey(movie) && directorMap.containsKey(director)){
            // your code here
-
+List<String>movies=new ArrayList<>();
          //list of movies by given director
-          List<String> movies=new ArrayList<>();
-          movies.add(movie);
+         if(directorMovieMapping.containsKey((director))){
+               movies=directorMovieMapping.get(director);
+
+         }
+         movies.add(movie);
+
            directorMovieMapping.put(director,movies);//updated the director movie pair map
 
        }
@@ -86,7 +90,7 @@ return null;
        for(String s:directorMovieMapping.keySet()){
            if(s.equals(name)){
                movieList=directorMovieMapping.get(s);
-//               directorMovieMapping.remove(s);
+               directorMovieMapping.remove(s);
            }
        }
        // remove movies from director movie list
