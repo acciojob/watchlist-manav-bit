@@ -103,7 +103,7 @@ public void deleteAllDirectors(){
         for(String m:movielist){
             movieMap.remove(m);
         }
-        directorMovieMapping.remove(s);
+
     }
     directorMap.clear();
 
