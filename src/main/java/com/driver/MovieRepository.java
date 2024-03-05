@@ -86,7 +86,7 @@ return null;
        for(String s:directorMovieMapping.keySet()){
            if(s.equals(name)){
                movieList=directorMovieMapping.get(s);
-               directorMovieMapping.remove(s);
+//               directorMovieMapping.remove(s);
            }
        }
        // remove movies from director movie list
